@@ -7,7 +7,7 @@
         <Picker Title="Seleccionar Curso"
                 ItemsSource="{Binding Grades}"
                 ItemDisplayBinding="{Binding FirstName}"
-                x:Name="cargoPicker"/>
+                x:Name="gradePicker"/>
         <Entry Placeholder="Primer Nombre"
                    x:Name="firstNameEntry"/>
         <Entry Placeholder="Segundo Nombre"

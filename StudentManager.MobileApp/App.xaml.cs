@@ -1,4 +1,6 @@
-﻿namespace StudentManager.MobileApp
+﻿using StudentManager.MobileApp.Views;
+
+namespace StudentManager.MobileApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new Views.ListStudents();
+            MainPage = new NavigationPage(new ListStudents());
         }
     }
 }
