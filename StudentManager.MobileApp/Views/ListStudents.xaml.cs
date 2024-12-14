@@ -28,7 +28,17 @@ public partial class ListStudents : ContentPage
 
     private void FilterSearchBar_TextChanged(object sender, EventArgs e)
 	{
+		string filter = filterSearchBar.Text.ToLower();
 
+		if(filter.Length > 0)
+		{
+			CollectionList.ItemsSource = StudentsList.Where(x => x.FullName.ToLower().Contains(filter));
+
+        }
+		else
+		{
+			CollectionList.ItemsSource = StudentsList;
+		}
 	}
 
     private async void NewStudentBtn_Clicked(object sender, EventArgs e)
