@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentManager.MobileApp.Views.UpdateStudent"
+             Title="Actualizar estudiante">
+    <StackLayout Padding="10" Spacing="10">
+        
+        <Label Text="Primer Nombre"/>
+        <Entry x:Name="EditFirstNameEntry"/>
+
+        <Label Text="Segundo Nombre"/>
+        <Entry x:Name="EditMiddleNameEntry"/>
+
+        <Label Text="Primer Apellido"/>
+        <Entry x:Name="EditLastNameEntry"/>
+
+        <Label Text="Segundo Apellido"/>
+        <Entry x:Name="EditSecondLastNameEntry"/>
+
+        <Label Text="Correo electrónico"/>
+        <Entry x:Name="EditEmailEntry"/>
+
+        <Label Text="Edad"/>
+        <Entry x:Name="EditAgeEntry" Keyboard="Numeric"/>
+
+        <Picker x:Name="EditGradePicker"
+                Title="Seleccionar Curso"
+                ItemsSource="{Binding Grades}"/>
+
+        <Button Text="Actualizar"
+                x:Name="UpdateButton"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="UpdateButton_Clicked"/>
+
+    </StackLayout>
+</ContentPage>

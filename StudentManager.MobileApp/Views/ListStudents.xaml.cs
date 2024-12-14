@@ -19,11 +19,18 @@ public partial class ListStudents : ContentPage
 	{
 		client.Child("Students").AsObservable<Student>().Subscribe(student =>
 		{
-			if (student != null)
-			{
-                StudentsList.Add(student.Object);
-			}
-		});
+            if (student != null)
+            {
+                var studentWithId = student.Object;
+                studentWithId.Id = student.Key; // Asocia la clave única con el modelo.
+
+                // Asegúrate de no duplicar estudiantes al actualizar la lista.
+                if (!StudentsList.Any(s => s.Id == studentWithId.Id))
+                {
+                    StudentsList.Add(studentWithId);
+                }
+            }
+        });
 	}
 
     private void FilterSearchBar_TextChanged(object sender, EventArgs e)
@@ -45,4 +52,20 @@ public partial class ListStudents : ContentPage
     {
 		await Navigation.PushAsync(new CreateStudent());
     }
+
+    private async void UpdateStudentBtn_Clicked(object sender, EventArgs e)
+    {
+        var button = sender as Button; // El botón que disparó el evento.
+        var student = button.BindingContext as Student; // Obtén el estudiante desde el BindingContext del botón.
+
+        if (student != null)
+        {
+            await Navigation.PushAsync(new UpdateStudent(student)); // Pasa el estudiante al constructor.
+        }
+        else
+        {
+            await DisplayAlert("Error", "No se pudo identificar al estudiante.", "OK");
+        }
+    }
+
 }

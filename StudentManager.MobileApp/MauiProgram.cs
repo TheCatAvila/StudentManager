@@ -26,28 +26,41 @@ namespace StudentManager.MobileApp
             return builder.Build();
         }
 
-        public static void Register()
+        public static async Task Register()
         {
             FirebaseClient client = new FirebaseClient("https://studentmanager-ac31a-default-rtdb.firebaseio.com/");
 
-            var grade = client.Child("Grade").OnceAsync<Grade>();
+            var grades = await client.Child("Grade").OnceAsync<Grade>();
 
-            if(grade.Result.Count == 0)
+            if(grades.Count == 0)
             {
-                client.Child("Grade").PostAsync(new Grade { Name = "Pre-kínder" });
-                client.Child("Grade").PostAsync(new Grade { Name = "Kínder" });
-                client.Child("Grade").PostAsync(new Grade { Name = "1° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "2° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "3° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "4° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "5° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "6° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "7° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "8° Básico" });
-                client.Child("Grade").PostAsync(new Grade { Name = "1° Medio" });
-                client.Child("Grade").PostAsync(new Grade { Name = "2° Medio" });
-                client.Child("Grade").PostAsync(new Grade { Name = "3° Medio" });
-                client.Child("Grade").PostAsync(new Grade { Name = "4° Medio" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "Pre-kínder" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "Kínder" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "1° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "2° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "3° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "4° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "5° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "6° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "7° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "8° Básico" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "1° Medio" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "2° Medio" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "3° Medio" });
+                await client.Child("Grade").PostAsync(new Grade { Name = "4° Medio" });
+            }
+            else
+            {
+                //foreach(var grade in grades)
+                //{
+                //    if(grade.Object.State == null)
+                //    {
+                //        var gradeUpdated = grade.Object;
+                //        gradeUpdated.State = true;
+
+                //        await client.Child("Grade").Child(grade.Key).PutAsync(gradeUpdated);
+                //    }
+                //}
             }
         }
     }

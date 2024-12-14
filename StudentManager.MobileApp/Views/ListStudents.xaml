@@ -26,9 +26,9 @@
                     Grid.Column="1" 
                     Clicked="NewStudentBtn_Clicked" />
             <CollectionView x:Name="CollectionList"
-                            ItemsSource="{Binding StudentsList}"
-                            Grid.Row="1"
-                            Grid.ColumnSpan="2">
+                ItemsSource="{Binding StudentsList}"
+                Grid.Row="1"
+                Grid.ColumnSpan="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnSpacing="10" Padding="5">
@@ -38,21 +38,38 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
+                                <!-- Imagen -->
+                                <ColumnDefinition Width="*"/>
+                                <!-- Información -->
                                 <ColumnDefinition Width="Auto"/>
+                                <!-- Botón -->
                             </Grid.ColumnDefinitions>
+
+                            <!-- Imagen -->
                             <Image Grid.RowSpan="2"
-                               Source="profile.jpg"
-                               Aspect="AspectFill"
-                               HeightRequest="60"
-                               WidthRequest="60"/>
+                       Source="profile.jpg"
+                       Aspect="AspectFill"
+                       HeightRequest="60"
+                       WidthRequest="60"/>
+
+                            <!-- Información -->
                             <Label Grid.Column="1"
-                               Grid.Row="0"
-                               Text="{Binding FullName}"
-                               FontAttributes="Bold"
-                               FontSize="20"/>
+                       Grid.Row="0"
+                       Text="{Binding FullName}"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
                             <Label Grid.Column="1"
-                               Grid.Row="1"
-                               Text="{Binding Grade.Name}"/>
+                       Grid.Row="1"
+                       Text="{Binding Grade.Name}"/>
+
+                            <!-- Botón Editar -->
+                            <Button Grid.Column="2"
+                        Grid.RowSpan="2"
+                        Text="Editar"
+                        Clicked="UpdateStudentBtn_Clicked"
+                        CommandParameter="{Binding .}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
