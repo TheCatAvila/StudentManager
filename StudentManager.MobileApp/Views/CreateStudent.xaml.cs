@@ -18,7 +18,7 @@ public partial class CreateStudent : ContentPage
 
     private void ListGrades()
     {
-        var grades = client.Child("Grades").OnceAsync<Grade>();
+        var grades = client.Child("Grade").OnceAsync<Grade>();
         Grades = grades.Result.Select(x => x.Object).ToList();
     }
 

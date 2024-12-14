@@ -6,7 +6,7 @@
     <VerticalStackLayout Padding="10" Spacing="10">
         <Picker Title="Seleccionar Curso"
                 ItemsSource="{Binding Grades}"
-                ItemDisplayBinding="{Binding FirstName}"
+                ItemDisplayBinding="{Binding Name}"
                 x:Name="gradePicker"/>
         <Entry Placeholder="Primer Nombre"
                    x:Name="firstNameEntry"/>
