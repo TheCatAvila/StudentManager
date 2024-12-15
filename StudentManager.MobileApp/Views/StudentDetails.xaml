@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentManager.MobileApp.Views.StudentDetails"
+             Title="Student Details">
+
+    <VerticalStackLayout Padding="15">
+
+        <!-- Imagen -->
+        <Image Grid.RowSpan="2"
+               Source="profile.jpg"
+               HeightRequest="100"
+               WidthRequest="100"
+               HorizontalOptions="Center"/>
+
+        <!-- Nombre -->
+        <Label Text="Nombre"
+               FontSize="16"
+               VerticalOptions="Start"
+               HorizontalOptions="Start" Padding="0, 10, 0, -5"/>
+
+        <Label x:Name="fullNameLabel"
+               FontSize="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Text="{Binding FullName}" Padding="0, 0, 0, 10"/>
+        <!-- Binding para el nombre completo -->
+
+        <!-- Email -->
+        <Label Text="Correo electrónico"
+               FontSize="16"
+               VerticalOptions="Start"
+               HorizontalOptions="Start" Padding="0, 10, 0, -5"/>
+
+        <Label x:Name="emailLabel"
+               FontSize="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Text="{Binding Email}" Padding="0, 0, 0, 10"/>
+        <!-- Binding para el correo electrónico -->
+
+        <!-- Edad -->
+        <Label Text="Edad"
+               FontSize="16"
+               VerticalOptions="Start"
+               HorizontalOptions="Start" Padding="0, 10, 0, -5"/>
+
+        <Label x:Name="ageLabel"
+               FontSize="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Text="{Binding Age, StringFormat='{0} años'}" Padding="0, 0, 0, 10"/>
+        <!-- Binding para la edad con formato -->
+
+        <!-- Curso -->
+        <Label Text="Curso"
+               FontSize="16"
+               VerticalOptions="Start"
+               HorizontalOptions="Start" Padding="0, 10, 0, -5"/>
+
+        <Label x:Name="gradeLabel"
+               FontSize="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Text="{Binding Grade}" Padding="0, 0, 0, 10"/>
+        <!-- Binding para el curso -->
+
+        <!-- Estado -->
+        <Label Text="Estado"
+               FontSize="16"
+               VerticalOptions="Start"
+               HorizontalOptions="Start" Padding="0, 10, 0, -5"/>
+
+        <Label x:Name="stateLabel"
+               FontSize="20"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Text="{Binding StateText}" Padding="0, 0, 0, 10"/>
+        <!-- Binding para el estado -->
+
+        <!-- Botones -->
+        <Button Text="Deshabilitar"
+                BackgroundColor="Red"
+                TextColor="White"
+                Clicked="DisableStudentBtn_Clicked"
+                CommandParameter="{Binding .}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center" Margin="0, 10, 0, 10"/>
+
+        <Button Text="Editar"
+                Clicked="UpdateStudentBtn_Clicked"
+                CommandParameter="{Binding .}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center" Margin="0, 0, 0, 10"/>
+
+    </VerticalStackLayout>
+</ContentPage>

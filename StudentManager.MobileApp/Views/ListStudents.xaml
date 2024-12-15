@@ -65,8 +65,8 @@
                             <!-- Botón Editar -->
                             <Button Grid.Column="2"
                         Grid.RowSpan="2"
-                        Text="Editar"
-                        Clicked="UpdateStudentBtn_Clicked"
+                        Text="Detalles"
+                        Clicked="DetailsStudentBtn_Clicked"
                         CommandParameter="{Binding .}"
                         HorizontalOptions="End"
                         VerticalOptions="Center"/>

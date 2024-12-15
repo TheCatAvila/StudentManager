@@ -21,7 +21,14 @@
         <Entry Placeholder="Edad"
             x:Name="ageEntry"
                Keyboard="Numeric"/>
-        <Button Text="Guardar"
+        <Picker Title="Seleccionar estado"
+                x:Name="statePicker">
+            <Picker.Items>
+                <x:String>Activo</x:String>
+                <x:String>Inactivo</x:String>
+            </Picker.Items>
+        </Picker>
+            <Button Text="Guardar"
                 x:Name="saveButton"
                 Clicked="saveButton_Clicked"/>
     </VerticalStackLayout>

@@ -27,7 +27,10 @@ public partial class CreateStudent : ContentPage
 	{
 		Grade grade = gradePicker.SelectedItem as Grade;
 
-		var student = new Student
+        int selectedIndex = statePicker.SelectedIndex;
+        bool state = selectedIndex == 0;
+
+        var student = new Student
 		{
 			FirstName = firstNameEntry.Text,
 			MiddleName = middleNameEntry.Text,
@@ -35,7 +38,8 @@ public partial class CreateStudent : ContentPage
 			SecondLastName = SecondLastNameEntry.Text,
 			Email = emailEntry.Text,
 			Age = int.Parse(ageEntry.Text),
-			Grade = grade
+			Grade = grade,
+			State = state
 		};
 
 		try

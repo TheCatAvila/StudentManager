@@ -69,6 +69,7 @@ public partial class UpdateStudent : ContentPage
                 .PutAsync(CurrentStudent);
 
             await DisplayAlert("Éxito", $"El estudiante {CurrentStudent.FirstName} fue actualizado correctamente.", "OK");
+            LoadStudentData();
             await Navigation.PopAsync();
         }
         catch (Exception ex)
